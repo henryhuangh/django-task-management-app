@@ -24,7 +24,7 @@
   <body>
     <div class="p-2 mb-2 bg-secondary text-white px-3">
       <div class="hstack gap-2">
-        <h3>Todo App</h3>
+        <h3>Task Management App</h3>
         <button
           type="button"
           class="btn btn-primary mx-2"
@@ -41,7 +41,7 @@
           <form action="/add-todo/" method="post">
             {% csrf_token %}
             <div class="modal-header">
-              <h5 class="modal-title">Add Todo Item</h5>
+              <h5 class="modal-title">Task Item</h5>
               <button
                 type="button"
                 class="btn-close"
@@ -56,7 +56,7 @@
                   type="text"
                   class="form-control"
                   id="todo-title-input"
-                  placeholder="title of the todo item"
+                  placeholder="your task"
                   name="title"
                 />
               </div>
@@ -69,6 +69,7 @@
                   id="todo-content-input"
                   rows="5"
                   name="content"
+                  placeholder="details..."
                 ></textarea>
               </div>
               <input
@@ -89,7 +90,7 @@
                 Close
               </button>
               <button class="btn btn-primary" type="submit" value="OK">
-                Add To Do
+                Add Task
               </button>
             </div>
           </form>
@@ -108,11 +109,7 @@
               </div>
               <div class="col-2 d-flex align-items-center">
                 <a href="/delete-todo/{{ todo.id }}">
-                  <button
-                    class="btn btn-danger btn-circle"
-                    type="submit"
-                    value="OK"
-                  >
+                  <button class="btn btn-danger" type="submit" value="OK">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </a>
@@ -121,7 +118,7 @@
           </div>
         </div>
         {% endfor %} {% if todos|length == 0 %}
-        <h3>No todos yet</h3>
+        <h3>No tasks yet</h3>
         {% endif %}
       </div>
     </div>
